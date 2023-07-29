@@ -1,0 +1,92 @@
+<div class="contrainer my-3">
+  <h5>Add Your Todo -</h5>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        [(ngModel)]="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Desc</label>
+      <input
+        type="text"
+        class="form-control"
+        id="desc"
+        name="desc"
+        [(ngModel)]="desc"
+      />
+    </div>
+    <div>
+      <label class="form-label">Status</label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="status"
+          name="options"
+          value="completed"
+        />
+        completed </label
+      ><br />
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="status"
+          name="options"
+          value="in-progress"
+        />
+        in-progress </label
+      ><br />
+      <label>
+        <input type="radio" [(ngModel)]="status" name="options" value="todo" />
+        todo
+      </label>
+    </div>
+    <div class="my-3">
+      <label class="form-label">Priority</label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="priority"
+          name="options1"
+          value="high"
+        />
+        high </label
+      ><br />
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="priority"
+          name="options1"
+          value="medium"
+        />
+        medium </label
+      ><br />
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="priority"
+          name="options1"
+          value="low"
+        />
+        low
+      </label>
+    </div>
+    <div class="my-3">
+      <label for="dateInput">Due Date : </label>
+      <input
+        type="date"
+        id="dateInput"
+        name="selectedDate"
+        [(ngModel)]="due_date"
+      />
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary">Add Todo</button>
+  </form>
+</div>

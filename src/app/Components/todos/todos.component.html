@@ -1,0 +1,34 @@
+<div class="container my-3">
+  <h1 class="container text-center">Welcome to Todos List!</h1>
+  <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+  <br />
+  <h5>Sort Todos according to -</h5>
+  <div class="my-3">
+    <button class="btn btn-sm btn btn-outline-info me-1" (click)="onClick1()">
+      Priority
+    </button>
+    <button class="btn btn-sm btn-outline-secondary me-1" (click)="onClick2()">
+      Status
+    </button>
+    <button class="btn btn-sm btn-outline-success me-1" (click)="onClick3()">
+      Due Date
+    </button>
+  </div>
+  <h5>Your Todos!</h5>
+  <button class="btn btn btn-outline-dark btn-sm" (click)="exportToCsv()">
+    Export to CSV
+  </button>
+  <div *ngIf="this.todos.length === 0; else block" class="my-3">
+    No Todos to Display!
+  </div>
+  <ng-template #block>
+    <div *ngFor="let todo of todos; let i = index">
+      <app-todo-item
+        [todo]="todo"
+        [i]="i"
+        (todoDelete)="deleteTodo($event)"
+        (todoEdit)="editTodo($event)"
+      ></app-todo-item>
+    </div>
+  </ng-template>
+</div>

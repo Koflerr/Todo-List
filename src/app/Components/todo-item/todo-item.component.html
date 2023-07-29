@@ -1,0 +1,126 @@
+<div>
+  <h5 class="my-3 mb-3">{{ todo.title }}</h5>
+  <p>
+    {{ todo.desc }} {{ todo.status }} {{ todo.priority }} {{ todo.due_date }}
+  </p>
+  <button class="btn btn-sm btn-danger me-1" (click)="onClick(todo)">
+    Delete
+  </button>
+  <!-- Button to trigger modal -->
+  <button
+    type="button"
+    class="btn btn-primary me-1 btn-sm"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Edit
+  </button>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Todo</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form (ngSubmit)="onSubmit(todo, i)">
+          <div class="modal-body">
+            <div>
+              <label class="form-label">Status</label>
+              <br />
+              <label>
+                <input
+                  type="radio"
+                  [(ngModel)]="status"
+                  name="options"
+                  value="completed"
+                />
+                completed </label
+              ><br />
+              <label>
+                <input
+                  type="radio"
+                  [(ngModel)]="status"
+                  name="options"
+                  value="in-progress"
+                />
+                in-progress </label
+              ><br />
+              <label>
+                <input
+                  type="radio"
+                  [(ngModel)]="status"
+                  name="options"
+                  value="todo"
+                />
+                todo
+              </label>
+            </div>
+            <div class="my-3">
+              <label class="form-label">Priority</label>
+              <br />
+              <label>
+                <input
+                  type="radio"
+                  [(ngModel)]="priority"
+                  name="options1"
+                  value="high"
+                />
+                high </label
+              ><br />
+              <label>
+                <input
+                  type="radio"
+                  [(ngModel)]="priority"
+                  name="options1"
+                  value="medium"
+                />
+                medium </label
+              ><br />
+              <label>
+                <input
+                  type="radio"
+                  [(ngModel)]="priority"
+                  name="options1"
+                  value="low"
+                />
+                low
+              </label>
+            </div>
+            <div class="my-3">
+              <label for="dateInput">Due Date : </label>
+              <input
+                type="date"
+                id="dateInput"
+                name="selectedDate"
+                [(ngModel)]="due_date"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-success">
+              Submit
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
